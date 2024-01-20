@@ -28,7 +28,7 @@ env:
 
 jobs:
   build:
-    runs-on: ${{ os }}
+    runs-on: ${{ env.os }}
     strategy:
       fail-fast: false
 
@@ -58,7 +58,7 @@ jobs:
         echo "------------------------------- 更新并安装依赖 -------------------------------"
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /etc/mysql /etc/php /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq install $(cat $GITHUB_WORKSPACE/depends/${{ os }})
+        sudo -E apt-get -qq install $(cat $GITHUB_WORKSPACE/depends/${{ env.os }})
         wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
         sudo python2.7 get-pip.py
         sudo rm -rf get-pip.py
@@ -78,19 +78,19 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b ${{ REPO_BRANCH }} openwrt
+        git clone $REPO_URL -b ${{ env.REPO_BRANCH }} openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: 缓存构建动作
       uses: klever1988/cachewrtbuild@main
       with:
         ccache: 'true'
-        mixkey: ${{ os }}-${{ ARCHITECTURE }}-${{ REPO_BRANCH }}
+        mixkey: ${{ env.os }}-${{ env.ARCHITECTURE }}-${{ env.REPO_BRANCH }}
         prefix: ${{ github.workspace }}/openwrt
 
     - name: 加载自定义 feeds
       env:
-        FEEDS_CONF_PATH: ${{ ARCHITECTURE }}/${{ env.FEEDS_CONF }}
+        FEEDS_CONF_PATH: ${{ env.ARCHITECTURE }}/${{ env.FEEDS_CONF }}
       run: |
         [ -e $FEEDS_CONF_PATH ] && mv $FEEDS_CONF_PATH openwrt/$FEEDS_CONF
         chmod +x $DIY_P1_SH
@@ -105,7 +105,7 @@ jobs:
 
     - name: 加载自定义配置
       env:
-        CONFIG_FILE_PATH: ${{ ARCHITECTURE }}/${{ env.CONFIG_FILE }}
+        CONFIG_FILE_PATH: ${{ env.ARCHITECTURE }}/${{ env.CONFIG_FILE }}
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE_PATH ] && mv $CONFIG_FILE_PATH openwrt/$CONFIG_FILE
@@ -172,11 +172,11 @@ jobs:
         echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H.%M")"
         touch release.txt
         echo "
-        💻 架构: ${{ ARCHITECTURE }}
+        💻 架构: ${{ env.ARCHITECTURE }}
 
         📂 源码: ${{ env.REPO_URL }}
 
-        🌳 分支: ${{ REPO_BRANCH }}
+        🌳 分支: ${{ env.REPO_BRANCH }}
 
         ⏱️ 编译时间: $(date +"%Y年%m月%d日%H时%M分")
 
