@@ -1,4 +1,4 @@
-name: Build iStore OS
+name: Build-iStore-OS
 
 on:
   repository_dispatch:
@@ -28,9 +28,7 @@ env:
 
 jobs:
   build:
-    runs-on: ${{ env.OS }}
-    strategy:
-      fail-fast: false
+    runs-on: ubuntu-22.04
 
     steps:
     - name: 准备完成
