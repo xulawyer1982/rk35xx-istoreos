@@ -16,9 +16,7 @@
 
 ### RK35xx 架构
 
-| 设备           | 包名称                                                                   |
-| -------------- | ------------------------------------------------------------------------ |
-| Panther-X2     | istoreos-rockchip-rk35xx-hinlink_opc-panther_x2-squashfs-combined.img.gz       |
+在原有仓库基础上添加Panther-X2支持，该版本支持Panther-X2的WIFI
 
 
 ## 鸣谢
