@@ -19,6 +19,7 @@ jobs:
         mkdir -p ./rk35xx
         wget -O ./rk35xx/feeds.conf https://fw0.koolcenter.com/iStoreOS/h88k/feeds.conf
         wget -O ./rk35xx/.config https://fw0.koolcenter.com/iStoreOS/h88k/config.buildinfo
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_panther_x2=y'>> ./rk35xx/.config
 
     - name: 同步配置
       uses: peaceiris/actions-gh-pages@v3
