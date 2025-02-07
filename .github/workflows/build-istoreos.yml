@@ -1,5 +1,5 @@
 name: Build-iStore-OS
-
+runs-on: self-hosted
 on:
   repository_dispatch:
   workflow_dispatch:
