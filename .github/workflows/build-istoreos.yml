@@ -28,7 +28,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04     #self-hosted
+    runs-on: self-hostedubuntu-22.04     #self-hosted
 
     steps:
     - name: 准备完成
