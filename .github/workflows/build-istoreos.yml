@@ -62,6 +62,8 @@ jobs:
         sudo rm -rf get-pip.py
         sudo pip install pyelftools
         echo "------------------------------- 清理Docker镜像和软件 -------------------------------"
+        docker rmi `docker images -q`
+        docker image prune -a -f
         sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* adoptopenjdk* mysql* php* mongodb* dotnet* moby* snapd* android* || true
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
@@ -71,11 +73,11 @@ jobs:
         sudo chown $USER:$GROUPS /workdir
 
     - name: 克隆源码
-      working-directory: /workdir
+      working-directory: /mnt/workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b ${{ env.REPO_BRANCH }} openwrt
-        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: 缓存构建动作
       uses: klever1988/cachewrtbuild@main
