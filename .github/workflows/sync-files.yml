@@ -20,7 +20,44 @@ jobs:
         wget -O ./rk35xx/feeds.conf https://fw0.koolcenter.com/iStoreOS/h88k/feeds.conf
         wget -O ./rk35xx/.config https://fw0.koolcenter.com/iStoreOS/h88k/config.buildinfo
         echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_panther_x2=y'>> ./rk35xx/.config
-       
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_armsom_sige7-v1=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_fastrhino_r66s=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_fastrhino_r68s=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_hinlink_hnas=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_inspur_ihec301=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_jp_tvbox=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_jsy_h1=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_ynn_ynnnas=n'>> ./rk35xx/.config
+        echo 'CONFIG_PACKAGE_lrzsz=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_dg_tn3568=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_easepi_ars4=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_easepi_r1=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_easepi_r2=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_ezpro_mrkaio-m68s=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_ezpro_mrkaio-m68s-plus=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_fastrhino_r6xs=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_firefly_station-m2=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_firefly_station-p2=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_friendlyelec_nanopi-r3s=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_friendlyarm_nanopi-r5s=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_friendlyarm_nanopi-r6s=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_hinlink_h88k=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_hinlink_opc-h6xk=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_hlink_h28k=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_klan_nas101=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_klan_nas102=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_linkfog_ala2=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_lyt_t68m=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_lyt_t88m=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_mangopi_m28k=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_nlnet_xgp=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_radxa_e20c=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_radxa_e52c=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_radxa_e54c=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_roc_k40pro=n'>> ./rk35xx/.config
+        echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_yijiahe_jm10=n'>> ./rk35xx/.config
+
+        
     - name: 同步配置
       uses: peaceiris/actions-gh-pages@v3
       with:
