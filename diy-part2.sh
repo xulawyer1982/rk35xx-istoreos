@@ -20,8 +20,8 @@ sed -i 's/192.168.100.1/192.168.1.168/g' package/base-files/files/bin/config_gen
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" ${GITHUB_WORKSPACE}/openwrt/package/feeds/packages/ttyd/files/ttyd.config
 
 # 添加自定义软件包
-echo '
+#echo '
 # CONFIG_PACKAGE_luci-app-mosdns=y
 # CONFIG_PACKAGE_luci-app-adguardhome=y
-CONFIG_PACKAGE_luci-app-passwall=y
- ' >> .config
+#CONFIG_PACKAGE_luci-app-passwall=y
+# ' >> .config
