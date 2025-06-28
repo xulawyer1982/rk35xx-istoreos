@@ -56,7 +56,8 @@ jobs:
         echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_radxa_e54c=n'>> ./rk35xx/.config
         echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_roc_k40pro=n'>> ./rk35xx/.config
         echo 'CONFIG_TARGET_DEVICE_rockchip_rk35xx_DEVICE_yijiahe_jm10=n'>> ./rk35xx/.config
-
+        echo 'CONFIG_PACKAGE_glib2=n'>> ./rk35xx/.config
+        echo 'CONFIG_PACKAGE_ntfs3-mount==n'>> ./rk35xx/.config
         
     - name: 同步配置
       uses: peaceiris/actions-gh-pages@v3
